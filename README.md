@@ -1,6 +1,6 @@
 # Supported tags and `Dockerfile` links
-- [`latest` (*Dockerfile*)](https://github.com/ilucker/docker-gitversion/blob/master/3.3.6/Dockerfile)
-- [`3.3.6` (*Dockerfile*)](https://github.com/ilucker/docker-gitversion/blob/master/3.3.6/Dockerfile)
+- [`3.3.6`, `3.3`, `stable` (*3.3.6/Dockerfile*)](https://github.com/ilucker/docker-gitversion/blob/master/3.3.6/Dockerfile)
+- [`4.0.0-beta.7`, `4.0.0`, `4.0`, `latest` (*4.0.0/Dockerfile*)](https://github.com/ilucker/docker-gitversion/blob/master/4.0.0/Dockerfile)
 
 # What is GitVersion
 
