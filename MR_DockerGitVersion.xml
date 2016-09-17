@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta-runner name="GitVersion in Docker">
+  <description>Run GitVersion in a docker containter</description>
+  <settings>
+    <parameters>
+      <param name="GitVersion.Git_Branch" value="" spec="text description='For GitVersion to pick up pull requests properly you need to promote the `%teamcity.build.vcs.branch.&lt;VCS root ID&gt;%` variable.' display='normal' label='VCS branch:'" />
+    </parameters>
+    <build-runners>
+      <runner name="Run GitVersion" type="simpleRunner">
+        <parameters>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+          <param name="script.content"><![CDATA[
+            docker pull ilucker/gitversion
+            docker run --rm -u $(id -u %env.USER%):$(id -g %env.USER%) -v "%teamcity.build.checkoutDir%:/src" -v "%teamcity.agent.home.dir%:%teamcity.agent.home.dir%" -e TEAMCITY_VERSION="%env.TEAMCITY_VERSION%" -e Git_Branch=%GitVersion.Git_Branch% ilucker/gitversion /output buildserver
+          ]]></param>
+        </parameters>
+      </runner>
+    </build-runners>
+  </settings>
+</meta-runner>
+
