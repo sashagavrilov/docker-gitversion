@@ -1,7 +1,3 @@
-# Supported tags and `Dockerfile` links
-- [`latest` (*Dockerfile*)](https://github.com/ilucker/docker-gitversion/blob/master/3.3.6/Dockerfile)
-- [`3.3.6` (*Dockerfile*)](https://github.com/ilucker/docker-gitversion/blob/master/3.3.6/Dockerfile)
-
 # What is GitVersion
 
 GitVersion is a tool to help you achieve *Semantic Versioning* on your project.
