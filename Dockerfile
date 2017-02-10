@@ -6,7 +6,7 @@ MAINTAINER Alexander Gavrilov <inbox@ilucker.com>
 RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.4.2.11/main" | tee /etc/apt/sources.list.d/mono-xamarin.list \
   && echo "deb http://ftp.debian.org/debian sid main" | tee -a /etc/apt/sources.list \
   && apt-get clean && apt-get update \
-  && apt-get install -y unzip git libc6 libc6-dev libc6-dbg \
+  && apt-get install -y --no-install-recommends unzip git libc6 libc6-dev libc6-dbg \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
 # Install GitVersion
