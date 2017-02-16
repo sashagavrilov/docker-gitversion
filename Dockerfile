@@ -11,3 +11,7 @@ RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.4.
 RUN curl -Ls https://github.com/GitTools/GitVersion/releases/download/v4.0.0-beta.9/GitVersion.CommandLine.4.0.0-beta0009.nupkg -o tmp.zip \ 
   && unzip -d /usr/lib/GitVersion tmp.zip \
   && rm tmp.zip
+
+RUN echo '#!/bin/bash\nexec mono /usr/lib/GitVersion/tools/GitVersion.exe "$@"' > /usr/bin/git-version
+
+RUN chmod +x /usr/bin/git-version
