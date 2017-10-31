@@ -1,7 +1,5 @@
 FROM mono
 
-MAINTAINER Alexander Gavrilov <inbox@ilucker.com>
-
 # Install software for GitVersion
 RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.4.2.11/main" | tee /etc/apt/sources.list.d/mono-xamarin.list \
   && echo "deb http://ftp.debian.org/debian sid main" | tee -a /etc/apt/sources.list \
@@ -14,8 +12,6 @@ RUN curl -Ls https://github.com/GitTools/GitVersion/releases/download/v4.0.0-bet
   && unzip -d /usr/lib/GitVersion tmp.zip \
   && rm tmp.zip
 
-WORKDIR /usr/lib/GitVersion/tools
+RUN echo '#!/bin/bash\nexec mono /usr/lib/GitVersion/tools/GitVersion.exe "$@"' > /usr/bin/git-version
 
-VOLUME ["/src"]
-
-ENTRYPOINT ["mono", "./GitVersion.exe", "/src"]
+RUN chmod +x /usr/bin/git-version
